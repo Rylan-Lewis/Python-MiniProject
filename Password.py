@@ -5,13 +5,13 @@ def check(x):
     while True:
         if (len(x)<5 or len(x)>10):
             break
-        elif not re.search("[a-z]",x):
-            break
         elif not re.search("[0-9]",x):
             break
-        elif not re.search("[A-Z]",x):
+        elif not re.search("[a-z]",x):
             break
         elif not re.search("[@&%]",x):
+            break
+        elif not re.search("[A-Z]",x):
             break
         elif re.search("\s",x):
             break
