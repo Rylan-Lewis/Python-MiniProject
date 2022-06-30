@@ -18,7 +18,8 @@ photo= PhotoImage(file="minipp.png")
 z_label=Label(image=photo)
 z_label.pack(anchor= "center")
 
-def check():
+#Pdf to word conversion
+def p():
     from pdf2docx import Converter
     pdf_file = input("Enter the file name:")
     docx_file ='sample_1.docx'
@@ -26,11 +27,27 @@ def check():
     cv.convert(docx_file)
     cv.close()
     
-    
-
-b1=Button(window_root, fg='red', text="Convert file to PDF", command=check)
+b1=Button(window_root, fg='red', text="Convert file to PDF", command=p)
 b1.pack(side=TOP, anchor="center")
 
+#Word to pdf conversion
+def w():
+    from docx2pdf import convert
+    docx_file = input("Enter the name of the Word Document: ")
+    convert(docx_file)
+
+b2=Button(window_root, fg="red", text="Convert to Docx", command= w)
+b2.pack(side=TOP, anchor="center")
+
+#Pdf to excel conversion
+def e():
+    import tabula
+    tabula.convert_into("xlsdemo1.pdf","xlsdemo1.csv",pages="all",output_format="csv")
+
+b3=Button(window_root, fg='red', text="Convert pdf to excel", command=e)
+b3.pack(side=TOP, anchor='Center')
+
+#Merging two pdfs
 def merger():
     from PyPDF2 import PdfFileMerger
     # create an instance of PdfFileMerger() class
@@ -47,9 +64,10 @@ def merger():
         merger.write("merged_2_pages.pdf")
     merger.close()
 
-b2=Button(window_root, fg='red', text="Merge two pdf files", command=merger)
-b2.pack(side=TOP, anchor="center")
+b4=Button(window_root, fg='red', text="Merge two pdf files", command=merger)
+b4.pack(side=TOP, anchor="center")
 
+#To view a protected file
 def passw():
     import re
     PASSWORD=input("Input your password")
@@ -74,8 +92,8 @@ def passw():
             print("Not a valid Password")
         print(check(PASSWORD))
 
-b3=Button(window_root, fg='red', text="View the File", command=passw)
-b3.pack(side=TOP, anchor='center')
+b5=Button(window_root, fg='red', text="View the File", command=passw)
+b5.pack(side=TOP, anchor='center')
 
 
 window_root.mainloop()
