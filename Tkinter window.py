@@ -45,7 +45,7 @@ def merger():
         merger.append(pdf_file)
         # Write out the merged PDF file
         merger.write("merged_2_pages.pdf")
-        merger.close()
+    merger.close()
 
 b2=Button(window_root, fg='red', text="Merge two pdf files", command=merger)
 b2.pack(side=TOP, anchor="center")
