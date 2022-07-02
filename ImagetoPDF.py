@@ -3,7 +3,7 @@ from PIL import Image
 
 import os
 
-filename ='image-removebg-preview (3).png'
+filename ='File Name'
 
 image = Image.open(filename)
 
