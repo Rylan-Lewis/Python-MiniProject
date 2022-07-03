@@ -134,6 +134,18 @@ def check():
         frame6.pack(padx = 20, pady = 20)
         b6=Button(frame6, fg="red", text="Split a PDF file", relief="sunken",command=s)
         b6.pack(side=TOP, padx=10, pady=10)
+        
+        #Conversion pdf to pptx
+        def ptx():
+            list_files = subprocess.run([ "pdf2pptx", "ABC.pdf" ])
+            showinfo("The files are converted successfully")
+        
+        frame7= Frame(window_root)
+        frame7.pack(padx = 20, pady = 20)
+        b7 = Button(frame7, fg="red", text ="Convert PDF file to pptx file", relief="sunken",command=ptx)
+        b7.pack(side=TOP, padx=10, pady=10)
+
+        window_root.mainloop()
     else:
         showinfo("INVALID")
         
