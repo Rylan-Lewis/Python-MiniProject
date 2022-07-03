@@ -119,6 +119,21 @@ def check():
         frame5.pack(padx = 20, pady = 20)
         b5=Button(frame5, fg="red", text="Convert Image to PDF file", relief="sunken",command=i)
         b5.pack(side=TOP, padx=10, pady=10)
+        
+        
+        # Spliting of two PDF's
+        def s():
+            input_pdf = PdfFileReader("merged_file.pdf")
+            output = PdfFileWriter()
+            output.addPage(input_pdf.getPage(0))
+            with open("Split Pdf file.pdf", "wb") as output_stream:
+                output.write(output_stream)
+            showinfo("Split successfully")
+        
+        frame6= Frame(window_root)
+        frame6.pack(padx = 20, pady = 20)
+        b6=Button(frame6, fg="red", text="Split a PDF file", relief="sunken",command=s)
+        b6.pack(side=TOP, padx=10, pady=10)
     else:
         showinfo("INVALID")
         
