@@ -100,6 +100,25 @@ def check():
         frame4.pack(padx=20, pady = 20)
         b4=Button(frame4, fg="red", text="Merge two Pdf files", relief="sunken", command=m )
         b4.pack(side=TOP, padx=10, pady=10)
+        
+        # Converting image to PDF
+        def i():
+            filename = 'minipp.png'
+            image = Image.open(filename)
+            
+            if image.mode == "RGBA":
+                image = image.convert("RGB")
+            
+            output = "Your converted image.pdf"
+            if not os.path.exists(output):
+                image.save(output,"PDF",resolution=100.0)
+            
+            showinfo("Converted Image to Pdf")
+            
+        frame5= Frame(window_root)
+        frame5.pack(padx = 20, pady = 20)
+        b5=Button(frame5, fg="red", text="Convert Image to PDF file", relief="sunken",command=i)
+        b5.pack(side=TOP, padx=10, pady=10)
     else:
         showinfo("INVALID")
         
