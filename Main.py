@@ -80,6 +80,26 @@ def check():
         frame3.pack( padx=20, pady = 20)
         b3=Button(frame3 , fg='red', text="Convert Pdf file to Excel file", relief="sunken", command=e)
         b3.pack(side=TOP, padx=10, pady=10)
+        
+        #Merging two pdfs
+        def m():
+            #Create and instance of PdfFileMerger() class
+            merger = PdfFileMerger()
+            #Create a list with file names
+            pdf_files = ['ABC.pdf', 'XYZ.pdf']
+            #Iterate over the list of file names
+            for pdf_file in pdf_files:
+                #Append PDF files
+                merger.append(pdf_file)
+            #Write out the merged PDF
+            merger.write("Merged Pdf file.pdf")
+            showinfo("Merged your pdfs")
+            merger.close()
+        
+        frame4 = Frame(window_root)
+        frame4.pack(padx=20, pady = 20)
+        b4=Button(frame4, fg="red", text="Merge two Pdf files", relief="sunken", command=m )
+        b4.pack(side=TOP, padx=10, pady=10)
     else:
         showinfo("INVALID")
         
