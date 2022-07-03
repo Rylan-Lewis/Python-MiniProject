@@ -47,6 +47,19 @@ def check():
         tx= Label(window_root,text="Convert your Files!" , font={"Arial", 20, "bold"},  background="Red", foreground="White" , width="12", height="1", relief=SUNKEN, padx=20, pady=10)
         tx.pack()
         window_root.mainloop()
+        
+        #Pdf to word conversion
+        def p():
+            docx_file='Converted Word file.docx'
+            filp = askopenfile(filetypes=[('Pdf Files', '*.pdf')])
+            pv = Converter(filp.name, r'C:\Users\lenovo\Desktop\Mini project python')
+            pv.convert(docx_file)
+            showinfo("Converted to Word")
+            pv.close()
+        frame1 = Frame(window_root)
+        frame1.pack( padx=20, pady = 20)
+        b1=Button(frame1, fg='red', text="Convert Pdf file to Word file", relief="sunken", command=p)
+        b1.pack(side=TOP, padx=10, pady=10)
     else:
         showinfo("INVALID")
         
