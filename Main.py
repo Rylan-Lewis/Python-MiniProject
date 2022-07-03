@@ -65,12 +65,21 @@ def check():
         def w():
             filw = askopenfile(filetypes=[('Word Files', '*.docx')])
             wv= convert(filw.name, r'C:\Users\lenovo\Desktop\Mini project python')
-            showinfo("Converterd to pdf")
+            showinfo("Converted to pdf")
             wv.close()
         frame2 = Frame(window_root)
         frame2.pack(padx=20, pady = 20)
         b2=Button(frame2, fg="red", text="Convert Word file to Pdf file", relief="sunken", command= w)
         b2.pack(side=TOP, padx=10, pady=10)
+        
+        #Pdf to excel conversion
+        def e():
+            tabula.convert_into("XYZ.pdf","Converted Excel file.csv",pages="all",output_format="csv")
+            showinfo("Converted to Excel")
+        frame3 = Frame(window_root)
+        frame3.pack( padx=20, pady = 20)
+        b3=Button(frame3 , fg='red', text="Convert Pdf file to Excel file", relief="sunken", command=e)
+        b3.pack(side=TOP, padx=10, pady=10)
     else:
         showinfo("INVALID")
         
