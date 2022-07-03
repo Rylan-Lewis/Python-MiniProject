@@ -60,10 +60,20 @@ def check():
         frame1.pack( padx=20, pady = 20)
         b1=Button(frame1, fg='red', text="Convert Pdf file to Word file", relief="sunken", command=p)
         b1.pack(side=TOP, padx=10, pady=10)
+        
+        #Word to pdf conversion
+        def w():
+            filw = askopenfile(filetypes=[('Word Files', '*.docx')])
+            wv= convert(filw.name, r'C:\Users\lenovo\Desktop\Mini project python')
+            showinfo("Converterd to pdf")
+            wv.close()
+        frame2 = Frame(window_root)
+        frame2.pack(padx=20, pady = 20)
+        b2=Button(frame2, fg="red", text="Convert Word file to Pdf file", relief="sunken", command= w)
+        b2.pack(side=TOP, padx=10, pady=10)
     else:
         showinfo("INVALID")
         
-
 pb=Button(proot, text='Validate', command=check)
 pb.pack()
 
